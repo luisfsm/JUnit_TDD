@@ -13,5 +13,4 @@ public class BonusService {
 		}
 		return valor;
 	}
-
 }
