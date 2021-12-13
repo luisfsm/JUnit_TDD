@@ -20,7 +20,7 @@ class BonusServiceTest {
 		BonusService service = new BonusService();
 		BigDecimal bonus = service.calcularBonus(new Funcionario("Luis Felipe",LocalDate.now(), new BigDecimal(25000)));
 		assertEquals(new BigDecimal("0.00"), bonus);
-	}
+	}	
 	
 	@Test 
 	void BonusDeveSerDeDezPorcentos() {
