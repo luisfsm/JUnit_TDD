@@ -2,6 +2,7 @@ package Test;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -18,9 +19,9 @@ class BonusServiceTest {
 	@DisplayName("Verifica se salario ultrapassa o bonus de 1000 e o deixa 0")
 	void calcularBonusFuncionarioSalarioAlto() {
 		BonusService service = new BonusService();
-		BigDecimal bonus = service.calcularBonus(new Funcionario("Luis Felipe",LocalDate.now(), new BigDecimal(25000)));
-		assertEquals(new BigDecimal("0.00"), bonus);
-	}	
+	    assertThrows(IllegalArgumentException.class,
+	    			()->service.calcularBonus(new Funcionario("Luis Felipe",LocalDate.now(), new BigDecimal(25000))));
+	}
 	
 	@Test 
 	void BonusDeveSerDeDezPorcentos() {
